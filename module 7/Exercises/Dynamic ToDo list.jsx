@@ -24,6 +24,13 @@ const handleSubmit = (e) => {
         setBodytext('');
     }
 
+    const deleteTodo = () => {
+        const newitem = [...todo];
+        newitem.splice(index, 1);
+        setTodo(newitem)
+
+    }
+
 
 }
 
@@ -36,14 +43,23 @@ const handleSubmit = (e) => {
             <button type="submit">Add To Do</button>
             </form>
            
+         
             <ul>
+            
                 {todo.map(item => (
                     <ul key={item.id}>
+                 
                          <h2> Title: {item.title} </h2><h4>to do... <br></br>{item.bodytext}</h4>
+                         <form onSubmit={deleteTodo}> <button type="submit">delete</button> </form>   
                     </ul>
+                     
                 ))}
-            </ul>         
+   {/* <form onSubmit={deleteTodo}> <button type="submit">delete</button> </form>    */}
+
+            </ul>  
+             
         </div>
+       
 
     )
 }

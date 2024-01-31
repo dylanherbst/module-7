@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function RefForm () {
 
@@ -15,6 +15,11 @@ const currentUserName = userRef.current.value;
     alert(`Your account UserName: "${currentUserName}" was succesfully created`)
 
 }
+
+React.useEffect(() =>{
+    userRef.current.focus();
+},[])
+
     return (
         <form onSubmit={handleSubmit}>  
         <input type='text' name="userName" placeholder='Enter UserName...'  ref={userRef} value={userName} onChange={handleUserInput}/>
