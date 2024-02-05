@@ -23,16 +23,12 @@ const handleSubmit = (e) => {
         setTitle('');
         setBodytext('');
     }
-
-    const deleteTodo = () => {
-        const newitem = [...todo];
-        newitem.splice(index, 1);
-        setTodo(newitem)
-
-    }
-
-
 }
+
+const handleDeleteTask = (id) => {
+        setTodo(todo.filter((todo) => todo.id !== id));
+      }
+
 
     return(
 
@@ -47,21 +43,20 @@ const handleSubmit = (e) => {
             <ul>
             
                 {todo.map(item => (
+                                
                     <ul key={item.id}>
                  
                          <h2> Title: {item.title} </h2><h4>to do... <br></br>{item.bodytext}</h4>
-                         <form onSubmit={deleteTodo}> <button type="submit">delete</button> </form>   
+                         <button onClick={() => handleDeleteTask(item.id)}>Delete</button>
                     </ul>
+                    
                      
                 ))}
-   {/* <form onSubmit={deleteTodo}> <button type="submit">delete</button> </form>    */}
-
-            </ul>  
-             
+            </ul> 
         </div>
-       
 
-    )
+    );
+                
 }
 
 export default ToDoList

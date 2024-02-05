@@ -1,12 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useExchange } from "./bitcoin hook";
+import { useUserContext } from "../CONTEXT/userContext";
+import { EmojiContext } from "../Emoji Context/emoji";
+
+
+
+
 
 const currencies = ['USD', 'AUD', 'NZD', 'GBP', 'EUR', 'SGD'];
 
-
 function BitcoinRates() {
     const [currency, setCurrency] = useState(currencies[0]);
-
+    const { currentUser, handleUpdateUser } = useUserContext();
+    const { mood, setMood } = useContext(EmojiContext);
 
 // OLD SET FOR CUSTOM HOOK
     // const [exchangeData, setExchangeData] = useExchange(`https://blockchain.info/ticker`, currency)
@@ -14,16 +20,20 @@ function BitcoinRates() {
 
     const options = currencies.map(curr => <option value={curr} key={curr}>{curr}</option>);
     
+
+
     
     return (
         <>
     <div className="BitcoinRates componentBox">
+      
     <h3>Bitcoin Exchange Rate</h3>
+    <h4>Welcome Back! {currentUser.email}</h4>  <div className="myEmoji">Your Emoji Emotion: {mood}</div>
     <label>Choose currency:
     <select value={currency} onChange={e => setCurrency(e.target.value)}>
     {options}
     </select>
-    {/* <h4> 1 BTC - / {currency} / Price: <strong> ${exchangeData} </strong></h4> */}
+   
     </label>
     {loading && <p>Loading...</p>}
     {error && <p>Error: {error}</p>}

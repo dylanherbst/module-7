@@ -13,24 +13,83 @@ import ToDoList from '../Exercises/Dynamic ToDo list'
 import SyncInputs from '../Exercises/synced inputs'
 import RefForm from '../Exercises/Ref form'
 import PostListReducer from '../REDUCER/reducer API'
+import ChangeStyle from '../Exercises/useEffectStyle'
+import { UserProvider } from '../CONTEXT/userContext'
+import LoginForm from '../Exercises/login form'
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from './App Routes/AppRoutes'
+import NavBar from './App Routes/pages/NavBar'
+import EmojiChanger from '../Emoji Context/emoji'
+import { EmojiProvider } from '../Emoji Context/emoji'
+import MUIForm from '../MUI STYLING/MUI form'
+import BasicGrid from '../MUI STYLING/MUI grid'
+import CustomCard from '../MUI STYLING/MUI card'
+import RecipeReviewCard from '../MUI STYLING/MUI Complex card'
+import SignIn from '../MUI STYLING/Sign In temp'
+// import TealTheme from '../MUI STYLING/theme'
+import { TealTheme } from '../MUI STYLING/theme'
+import { ThemeProvider } from '@emotion/react'
+
+
 
 function App() {
 
 
   return (
     <>
+    <ThemeProvider theme={TealTheme}>
+
+    <BasicGrid>
+    </BasicGrid>
+    </ThemeProvider>
+
+    {/* <SignIn></SignIn> */}
+          {/* <RecipeReviewCard></RecipeReviewCard> */}
+
+{/* <CustomCard></CustomCard>
+    <MUIForm></MUIForm> */}
+    {/* <EmojiProvider>
+<EmojiChanger></EmojiChanger>
+<UserProvider>
+
+    <LoginForm></LoginForm>
+  </UserProvider> */}
+
+{/* </EmojiProvider> */}
+
+
+
+
+  <UserProvider>
+    {/* <NavBar></NavBar>
+
+<AppRoutes /> */}
+
+</UserProvider>
+
+
 {/* <ClockDisplay/>
 <ActivityFinder></ActivityFinder> */}
 {/* <RefCounter></RefCounter> */}
-<BitcoinRates></BitcoinRates>
+
 {/* <VideoPlayer></VideoPlayer> */}
 {/* <StatefulCounter></StatefulCounter>
-<ToDoList></ToDoList>
-<br></br>
+<ToDoList></ToDoList> */}
+{/* <br></br>
 <SyncInputs></SyncInputs>
 <br></br>
 <RefForm></RefForm> */}
   {/* <PostListReducer></PostListReducer> */}
+  {/* <ChangeStyle></ChangeStyle> */}
+
+
+
+
+  
+
+  {/* <BitcoinRates></BitcoinRates> */}
+
+
     </>
   )
 }
